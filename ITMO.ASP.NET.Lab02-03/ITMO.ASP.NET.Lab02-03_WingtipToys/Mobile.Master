@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="WingtipToys.Mobile" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+<form runat="server">
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">Wingtip Toys</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Home</a></li>
+                    <li><a runat="server" href="~/About">About</a></li>
+                    <li><a runat="server" href="~/Contact">Contact</a></li>
+                    <li><a runat="server" href="~/ProductList">Products</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="TitleContent" style="text-align: center">
+        <a runat="server" href="~/">
+            <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" BorderStyle="None" />
+        </a>  
+        <br />  
+    </div>
+    <div id="CategoryMenu" style="text-align: center">       
+            <asp:ListView ID="categoryList"  
+                ItemType="WingtipToys.Data.Models.Category" 
+                runat="server"
+                SelectMethod="GetCategories" >
+                <ItemTemplate>
+                    <b >
+                    <a href="<%#: GetRouteUrl("ProductsByCategoryRoute", new {categoryName = Item.CategoryName}) %>">
+                        <%#: Item.CategoryName %>
+                    </a>
+                    </b>
+                </ItemTemplate>
+                <ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>
+            </asp:ListView>
+        </div>
+
+    <div >
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Wingtip Toys</p>
+        </footer>
+    </div>
+</form>
+</body>
+</html>
