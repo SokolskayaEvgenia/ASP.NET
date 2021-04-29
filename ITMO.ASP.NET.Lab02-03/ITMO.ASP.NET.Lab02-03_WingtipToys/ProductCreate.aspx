@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductCreate.aspx.cs" Inherits="WingtipToys.ProductCreate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div>
+    <h1>Add new product</h1>
+    <div runat="server" ID="CreateProductForm">
         <asp:Label ID="LabelProductName" runat="server" AssociatedControlID="ProductName" Text="Product Name:"></asp:Label>
         <br />
         <asp:TextBox ID="ProductName" runat="server"></asp:TextBox>
@@ -11,6 +12,7 @@
         <asp:TextBox ID="UnitPrice" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="UnitPriceValidator" runat="server" ErrorMessage="Product price is required" Display="Dynamic" ControlToValidate="UnitPrice"></asp:RequiredFieldValidator>
         <asp:RangeValidator ID="UnitPriceRangeValidator" runat="server" ErrorMessage="Price should be grater then zero. Maximum price is 600$" Display="Dynamic" ControlToValidate="UnitPrice" MinimumValue="0,10" MaximumValue="600,00" Type="Currency"></asp:RangeValidator>
+        <br />
         <br />
         <asp:Label ID="ProductCategoryLabel" runat="server" AssociatedControlID="ProductCategoryList" Text="Category: "></asp:Label>
         <asp:DropDownList ID="ProductCategoryList" runat="server" SelectMethod="GetCategories" ItemType="WingtipToys.Data.Models.Category" DataTextField="CategoryName" DataValueField="CategoryID"></asp:DropDownList>
@@ -28,6 +30,11 @@
         <asp:RegularExpressionValidator ID="UrlValidator" runat="server" ControlToValidate="ImagePath" ErrorMessage="Image should be a valid URL" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" Display="Dynamic"></asp:RegularExpressionValidator>
         <asp:CustomValidator ID="ImageExistsValidator" runat="server" ControlToValidate="ImagePath" ErrorMessage="Url should be an existing image" OnServerValidate="ValidationImageExistence" Display="Dynamic"></asp:CustomValidator>
         <br />
-        <asp:Button ID="CreateProductButton" runat="server" Text="Button" />
+        <br />
+        <asp:Button ID="CreateProductButton" runat="server" Text="Create product" OnClick="CreateProductButton_Click" />
     </div>
+    <div runat="server" ID="SuccessBlock" Visible="False">
+            <h2>New product <b><asp:Literal ID="MesageProductName" runat="server"></asp:Literal></b> (number: <b><asp:Literal ID="MessageProductID" runat="server"></asp:Literal></b>) was successfully added to our store. You could <a href="~/ProductList" runat="server">check catalog</a></h2>
+    </div>
+    
 </asp:Content>

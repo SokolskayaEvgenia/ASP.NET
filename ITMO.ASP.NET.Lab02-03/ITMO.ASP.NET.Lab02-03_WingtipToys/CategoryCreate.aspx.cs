@@ -15,7 +15,7 @@ namespace WingtipToys
         }
 
         private static readonly IStoreService _service = new StoreService(new InMemoryProductRepository(), new InMemoryCategoryRepository());
-        protected void ValidateUnique(object source, ServerValidateEventArgs args)
+       protected void ValidateUnique(object source, ServerValidateEventArgs args)
         {
             args.IsValid = !_service.CategoryExists(args.Value);
         }

@@ -15,6 +15,15 @@ namespace WingtipToys
     {
 
         /// <summary>
+        /// CreateProductForm элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreateProductForm;
+
+        /// <summary>
         /// LabelProductName элемент управления.
         /// </summary>
         /// <remarks>
@@ -184,5 +193,32 @@ namespace WingtipToys
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CreateProductButton;
+
+        /// <summary>
+        /// SuccessBlock элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessBlock;
+
+        /// <summary>
+        /// MesageProductName элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal MesageProductName;
+
+        /// <summary>
+        /// MessageProductID элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal MessageProductID;
     }
 }

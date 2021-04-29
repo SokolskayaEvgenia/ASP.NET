@@ -6,6 +6,7 @@ using WingtipToys.Business;
 using WingtipToys.Data;
 using WingtipToys.Data.Models;
 
+
 namespace WingtipToys
 {
     public partial class ProductDetails : System.Web.UI.Page
@@ -16,7 +17,6 @@ namespace WingtipToys
         }
 
         private static readonly IStoreService _service = new StoreService(new InMemoryProductRepository(), new InMemoryCategoryRepository());
-
         public IQueryable<Product> GetProduct([RouteData("productId")] int? productId)
         {
             if (!productId.HasValue || productId.Value == 0)
